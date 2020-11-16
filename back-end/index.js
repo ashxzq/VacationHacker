@@ -10,8 +10,8 @@ app.use(cors());
 
 const db = mysql.createConnection({                ////这里可能要改
     user: "root",
-    host: "localhost"
-    password: "password"
+    host: "localhost",
+    password: "password",
     database: "vacationHacker"
 });
 
