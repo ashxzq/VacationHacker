@@ -1,11 +1,11 @@
-import logo from './logo.png';
-import './App.css';
+import logo from '../../logo.png';
+//import './App.css';
 import React, {useState} from "react";
 import { ButtonGroup, Button, Row, Container, Col} from 'react-bootstrap';
 import axios from 'axios'
 
 
-function Search() {
+function SearchFlight() {
   const [ori, oriInput] = useState('')
   const [des, desInput] = useState('')
   const [fc, fcInput] =  useState('')
@@ -28,7 +28,7 @@ function Search() {
   };
 
   return (
-    <div className = "find">
+    <div className = "search">
       <div className = "searchelements">
         <img src={logo}></img>
         <h1> Enter origin/destination/class/stops to search for flights!</h1>
@@ -70,4 +70,4 @@ function Search() {
   );
 }
 
-export default Search;
+export default SearchFlight;

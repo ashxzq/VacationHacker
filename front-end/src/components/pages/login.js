@@ -1,5 +1,5 @@
-import logo from './logo.png';
-import './App.css';
+import logo from '../../logo.png';
+//import './App.css';
 import React, {useState} from "react";
 import { ButtonGroup, Button, Row, Container, Col} from 'react-bootstrap';
 import axios from 'axios'
@@ -9,7 +9,7 @@ function Login() {
   const [userid, useridInput] = useState('')
   const [pw, pwInput] = useState('')
   const [loginStatus, setLoginStatus] =  useState('')
-
+//===================================================================================================================
   const register = () => {
     axios.post('http://localhost3001/register', { //// change this
       userID: userid, 
@@ -19,8 +19,9 @@ function Login() {
     });
   };
 
+//====================================================================================================================
   const login = () => {
-    axios.post('http://localhost3001/register', {
+    axios.post('http://localhost3001/register', { ////// change this
       userID: userid, 
       password: pw
     }).then((response)=> {
@@ -32,8 +33,9 @@ function Login() {
     });
   };
 
+//====================================================================================================================
   return (
-    <div className = "App">
+    <div className = "login">
       <div className = "logininput">
         <img src={logo}></img>
         <h1>Register or Log In to search for routes and hotels!</h1>
