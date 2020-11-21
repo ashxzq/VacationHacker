@@ -1,27 +1,18 @@
-import logo from '../../logo.png';
+import logo from '../images/logo.png';
 //import './App.css';
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { ButtonGroup, Button, Row, Container, Col} from 'react-bootstrap';
 import axios from 'axios'
-
+import {Link} from 'react-router-dom'
+import Axios from 'axios';
 
 function Login() {
   const [userid, useridInput] = useState('')
   const [pw, pwInput] = useState('')
   const [loginStatus, setLoginStatus] =  useState('')
-//===================================================================================================================
-  const register = () => {
-    axios.post('http://localhost3001/register', { //// change this
-      userID: userid, 
-      password: pw
-    }).then((response)=> {
-      console.log(response);
-    });
-  };
-
-//====================================================================================================================
+  
   const login = () => {
-    axios.post('http://localhost3001/register', { ////// change this
+    Axios.post('http://localhost3001/register', { ////// change this
       userID: userid, 
       password: pw
     }).then((response)=> {
@@ -33,7 +24,6 @@ function Login() {
     });
   };
 
-//====================================================================================================================
   return (
     <div className = "login">
       <div className = "logininput">
@@ -54,10 +44,13 @@ function Login() {
           }}
         />
       </div>
-      <ButtonGroup size = "1g" className = "reglogin">
-        <Button variant="outline-primary" onClick = {register}>Register</Button>
+      <Link to='register'>
+        <Button variant="outline-primary">Register Instead</Button>
+      </Link>
+      
         <Button variant="outline-primary" onClick = {login}>Log In</Button>
-      </ButtonGroup>
+      
+      
       <h1>{loginStatus}</h1>
     </div>
   );

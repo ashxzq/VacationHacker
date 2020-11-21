@@ -1,17 +1,12 @@
 export const MenuItems = [
     {
-        title: 'Flights',
-        path: '/searchflight',
+        title: 'Basic',
+        path: '/searchbasic',
         cName: 'dropdown-link'
     },
     {
-        title: 'Hotels',
-        path: '/searchhotel',
-        cName: 'dropdown-link'
-    },
-    {
-        title: 'Combine',
-        path: '/searchcombine',
+        title: 'Advanced',
+        path: '/searchadvanced',
         cName: 'dropdown-link'
     }
 ];

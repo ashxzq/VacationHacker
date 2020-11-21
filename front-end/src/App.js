@@ -4,13 +4,13 @@ import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 //pages components
-import SearchFlight from './components/pages/searchflight'
 import Login from './components/pages/login'
 import Profile from './components/pages/profile'
 import Home from './components/pages/home'
-import SearchHotel from './components/pages/searchhotel';
-import SearchCombine from './components/pages/searchcombine';
 import SearchMain from './components/pages/searchmain';
+import SearchBasic from './components/pages/searchbasic';
+import SearchAdvanced from './components/pages/searchadvanced';
+import Register from './components/pages/register';
 
 
 function App() {
@@ -22,9 +22,9 @@ function App() {
                 <Route path='/login' exact component={Login}/>
                 <Route path='/profile' exact component={Profile}/>
                 <Route path='/searchmain' exact component={SearchMain}/>
-                <Route path='/searchflight' exact component={SearchFlight}/>
-                <Route path='/searchhotel' exact component={SearchHotel}/>
-                <Route path='/searchCOMBINE' exact component={SearchCombine}/>
+                <Route path='/searchbasic' exact component={SearchBasic}/>
+                <Route path='/searchadvanced' exact component={SearchAdvanced}/>
+                <Route path='/register' exact component={Register}/>
             </Switch>  
         </Router>
     );

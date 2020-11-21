@@ -10,10 +10,22 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.home, .login, .search {
+/* .home, .login, .search {
   display: flex;
-  height: 90vh;
+  height: 70vh;
   align-items: center;
   justify-content: center;
   font: 3rem;
-}
+} */
+/* .homelogo {
+  
+  position: absolute;
+  top: 10%;
+  left: 40%;
+  width:  300px;
+  height: 300px;
+  text-align:center; */
+
+  /* background-position: 50% 50%;
+  background-repeat:   no-repeat;
+  background-size:     cover; */
