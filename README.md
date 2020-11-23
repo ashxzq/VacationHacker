@@ -1,3 +1,4 @@
+Navigate into the front-end and run
 ### `npm start`
 
 Runs the app in the development mode.\
