@@ -4,13 +4,13 @@ import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 //pages components
-import Login from './components/pages/login'
+import {Login} from './components/pages/login'
 import Profile from './components/pages/profile'
 import Home from './components/pages/home'
 import SearchMain from './components/pages/searchmain';
-import SearchBasic from './components/pages/searchbasic';
+import {SearchBasic} from './components/pages/searchbasic';
 import SearchAdvanced from './components/pages/searchadvanced';
-import Register from './components/pages/register';
+import {Register} from './components/pages/register';
 
 
 function App() {

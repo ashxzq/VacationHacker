@@ -33,7 +33,7 @@ function Navbar() {
         <>
             <nav className='navbar'>
                 <Link to='/' className='navbar-logo'>
-                    VacationHacker <i class="far fa-paper-plane"></i>
+                    TravelChina <i class="far fa-paper-plane"></i>
                 </Link>
                 <div className='menu-icon' onClick={handleClick}>
                     <i className={click ? 'fas fa-times' : 'fas fa-bars'}/>
