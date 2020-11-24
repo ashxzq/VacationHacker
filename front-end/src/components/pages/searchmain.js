@@ -9,7 +9,7 @@ function SearchMain() {
             <Link to='searchbasic'>
                 <Button>Basic</Button>
             </Link>
-            <h1>find flights based on your location</h1>
+            <h1>find and save flights based on your preferences</h1>
             <Link to='searchadvanced'>
                 <Button>Advanced</Button>
             </Link>

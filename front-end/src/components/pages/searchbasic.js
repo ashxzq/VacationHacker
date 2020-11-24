@@ -10,10 +10,7 @@ export class SearchBasic extends React.Component {
         this.state = {
             area : '',
             country : '',
-            dateD : '',
-            dateM : '',
-            dateY : '',
-            fclass : '',
+            weekday : '',
         }
     }
 
@@ -26,15 +23,12 @@ export class SearchBasic extends React.Component {
     
     login = e => {
         e.preventDefault()
-        const {area, country, dateD, dateM, dateY, fclass} = this.state
+        const {area, country, weekday} = this.state
         Axios.post(base_url + 'users/login', {                              //// change this
             'basicsearch': {
                 'area' : area,
                 'country' : country, 
-                'dateD' : dateD,
-                'dateM' : dateM, 
-                'dateY' : dateY, 
-                'fclass' : fclass
+                'weekday' : weekday
             }
         }).then((response)=> {
             if (response.data.message){
@@ -64,75 +58,49 @@ export class SearchBasic extends React.Component {
      
                      <label> Departing Country</label> 
                      <select name='country' value = {this.state.country} placeholder='country' onChange={this.changeHandler}>
-                         <option value="North America">North America</option>
-                         <option value="East Asia">East Asia</option>
-                         <option value="South East Asia">South East Asia</option>   
-                         <option value="Middle East">Middle East</option>
-                         <option value="Europe">Europe</option>
-                         <option value="Africa">Africa</option>
+                        <option value="USA">USA</option>
+                        <option value="Canada">Canada</option>
+                        <option value="South Korea">South Korea</option>
+                        <option value="Japan">Japan</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Cambodia">Cambodia</option>
+                        <option value="United Arab Emirates">United Arab Emirates</option>
+                        <option values="Qatar">Qatar</option>
+                        <option values="Saudi Arabia">Saudi Arabia</option>
+                        <option values="United Kingdom">United Kingdom</option>
+                        <option values="France">France</option>
+                        <option values="Germany">Germany</option>
+                        <option values="Netherlands">Netherlands</option>
+                        <option values="Switzerland">Switzerland</option>
+                        <option values="Finland">Finland</option>
+                        <option values="Belgium">Belgium</option>
+                        <option values="Portugal">Portugal</option>
+                        <option values="Denmark">Denmark</option>
+                        <option values="Sweden">Sweden</option>
+                        <option values="Spain">Spain</option>
+                        <option values="Austria">Austria</option>
+                        <option values="Greek">Greek</option>
+                        <option values="Belarus">Belarus</option>
+                        <option values="Turkey">Turkey</option>
+                        <option values="Italy">Italy</option>
+                        <option values="Poland">Poland</option>
+                        <option values="Russia">Russia</option>
+                        <option values="Ethiopia">Ethiopia</option>
+                        <option values="Egypt">Egypt</option>
+                        <option values="Kenya">Kenya</option>
                      </select>
 
-                     <label> Class</label> 
-                     <select name='fclass' value = {this.state.fclass} placeholder='fclass' onChange={this.changeHandler}>
-                         <option value="economy">Economy</option>
-                         <option value="business">Business</option>
-                         <option value="first">First</option>
+                     <label> Weekday</label> 
+                     <select name='weekday' value = {this.state.weekday} placeholder='weekday' onChange={this.changeHandler}>
+                         <option value="Monday">Monday</option>
+                         <option value="Tuesday">Tuesday</option>
+                         <option value="Wednesday">Wednesday</option>
+                         <option value="Thursday">Thursday</option>
+                         <option value="Friday">Friday</option>
+                         <option value="Saturday">Saturday</option>
+                         <option value="Sunday">Sunday</option>
                      </select>
 
-                     <label> Departing Date</label> 
-                     <select name='dateM' value = {this.state.dateM} placeholder='dateM' onChange={this.changeHandler}>
-                         <option value="JAN">JAN</option>
-                         <option value="FEB">FEB</option>
-                         <option value="MARCH">MARCH</option>
-                         <option value="APR">APR</option>
-                         <option value="MAY">MAY</option>
-                         <option value="JUN">JUN</option>
-                         <option value="JUL">JUL</option>
-                         <option value="AUG">AUG</option>
-                         <option value="SEP">SEP</option>
-                         <option value="OCT">OCT</option>
-                         <option value="NOV">NOV</option>
-                         <option value="DEC">DEC</option>
-                     </select>
-                     <select name='dateD' value = {this.state.dateD} placeholder='dateD' onChange={this.changeHandler}>
-                         <option value="1">1</option>
-                         <option value="2">2</option>
-                         <option value="3">3</option>
-                         <option value="4">4</option>
-                         <option value="5">5</option>
-                         <option value="6">6</option>
-                         <option value="7">7</option>
-                         <option value="8">8</option>
-                         <option value="9">9</option>
-                         <option value="10">10</option>
-                         <option value="11">11</option>
-                         <option value="12">12</option>
-                         <option value="13">13</option>
-                         <option value="14">14</option>
-                         <option value="15">15</option>
-                         <option value="16">16</option>
-                         <option value="17">17</option>
-                         <option value="18">18</option>
-                         <option value="19">19</option>
-                         <option value="20">20</option>
-                         <option value="21">21</option>
-                         <option value="22">22</option>
-                         <option value="23">23</option>
-                         <option value="24">24</option>
-                         <option value="25">25</option>
-                         <option value="26">26</option>
-                         <option value="27">27</option>
-                         <option value="28">28</option>
-                         <option value="29">29</option>
-                         <option value="30">30</option>
-                         <option value="31">31</option>
-     
-                     </select>
-                     <select name='dateY' value = {this.state.dateY} placeholder='dateY' onChange={this.changeHandler}>
-                         <option value="2020">2020</option>
-                         <option value="2021">2021</option>
-                         <option value="2022">2022</option>
-                     </select>
                 </div>
                 <div className='searchbutton'>
                     <Button variant="outline-primary" onClick = {this.search}>Search</Button>
