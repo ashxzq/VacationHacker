@@ -1,6 +1,7 @@
 import React from 'react';
 import { ButtonGroup, Button, Row, Container, Col} from 'react-bootstrap';
 import Axios from 'axios'
+import {SampleFlights} from './sampleflights'
 
 const base_url = 'http://localhost3001/'           //////change this
 
@@ -11,6 +12,7 @@ export class SearchBasic extends React.Component {
             area : '',
             country : '',
             weekday : '',
+            flights : null,
         }
     }
 
@@ -21,10 +23,15 @@ export class SearchBasic extends React.Component {
         })
     }
     
-    login = e => {
+    search = async(e) => {
+        // ---------for testing purposes, do not delete
+        // this.setState({                     
+        //     flights : SampleFlights
+        // })
+        // ----------for testing purposes, do not delete
         e.preventDefault()
         const {area, country, weekday} = this.state
-        Axios.post(base_url + 'users/login', {                              //// change this
+        Axios.post(base_url + '/basicsearch', {                              //// change this
             'basicsearch': {
                 'area' : area,
                 'country' : country, 
@@ -36,7 +43,7 @@ export class SearchBasic extends React.Component {
             } else {
                 console.log(response);
                 this.setState({
-                    isRegistered: true //这里改成redirect到profile page & add cookies
+                    flights : response.data
                 })
             }
         });      
@@ -104,6 +111,25 @@ export class SearchBasic extends React.Component {
                 </div>
                 <div className='searchbutton'>
                     <Button variant="outline-primary" onClick = {this.search}>Search</Button>
+                </div>
+                <div className='basicdisplay'>
+                    {this.state.flights && this.state.flights.map((flight, index)=> {
+                        return (
+                            <div className="flight" key={index}>
+                                <h3>Flight {index+1}</h3>
+                                <div className='details'>
+                                    <p>From: {flight.ForeignAirport}</p>
+                                    <p>To: {flight.ChineseAirport}</p>
+                                    <p>Airline: {flight.Airline}</p>
+                                    <p>FlightNo: {flight.FlightNumber}</p>
+                                    <p>Weekday: {flight.Weekday}</p>
+                                    <p>Price starting at: {flight.price}</p>
+                                    <p>Booking Website: {flight.Website}</p>
+                                </div>
+                            </div>
+                        );
+                    })}
+                    {!this.state.flights && <div className='hint'><p>Select area, country and weekday to search for flights</p></div>}
                 </div>
             </div>
          );

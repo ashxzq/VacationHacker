@@ -25,7 +25,7 @@ export class Login extends React.Component {
         })
     }
 
-    login = e => {
+    login = async(e) => {
         e.preventDefault()
         const {userID, password} = this.state
         Axios.post(base_url + 'users/login', {                              //// change this
@@ -36,10 +36,13 @@ export class Login extends React.Component {
         }).then((response)=> {
             if (response.data.message){
               console.log(response.data.message)
+              this.setState({
+                loggedInFailed: true 
+              })
             } else {
                 console.log(response);
                 this.setState({
-                    isRegistered: true 
+                    isLoggedIn: true 
                 })
                 localStorage.setItem('userID', userID);// saved to local storage as
             }
@@ -75,8 +78,9 @@ export class Login extends React.Component {
               <Link to='register'>
                 <Button variant="outline-primary">Register Instead</Button>
               </Link>
-                <Button variant="outline-primary" onClick = {this.login}>Log In</Button>
-            
+                <Button variant="outline-primary" onClick = {this.login.bind(this)}>Log In</Button>
+              {this.loggedInFailed && <div>
+                <p>Incorrect userID/password, please try again!</p></div>}
             </div>
           );
     }

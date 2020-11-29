@@ -3,8 +3,6 @@ const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
 const bodyParser = require('body-parser')
-const cookieParser= require('cookie-parser')
-console session = require('express-session')
 
 const app = express();
 
@@ -18,17 +16,7 @@ app.use(cors(
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use(
-    session({
-        key: "userID",
-        secret: "subscribe",
-        resave: false,
-        saveUninitialized: false,
-        cookie: {
-            expires: 60*60*24,
-        },
-    })
-);
+
 
 const db = mysql.createConnection({                ////这里可能要改
     user: "root",

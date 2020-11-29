@@ -8,10 +8,10 @@ import App from '../../App';
 function Navbar() {
     const [click, setClick] = useState(false);
     const [dropdown, setDropdown] = useState(false);
+    const [isLoggedIn, setLoggedIn] = useState(localStorage.getItem('userID') ? true : false);
 
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
-    
     const onMouseEnter = () => {
         if (window.innerWidth < 960) {
             setDropdown(false)
