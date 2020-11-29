@@ -39,8 +39,9 @@ export class Login extends React.Component {
             } else {
                 console.log(response);
                 this.setState({
-                    isRegistered: true //这里改成redirect到profile page & add cookies
+                    isRegistered: true 
                 })
+                localStorage.setItem('userID', userID);// saved to local storage as
             }
         });      
     }
