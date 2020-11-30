@@ -2,11 +2,21 @@ const { Console } = require("console");
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
+const bodyParser = require('body-parser')
 
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+    origin: ["http://localhost:3000"],
+    methods: ["GET","POST"],
+    credentials:true
+));
+
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({extended: true}));
+
+
 
 const db = mysql.createConnection({                ////这里可能要改
     user: "root",
@@ -45,6 +55,7 @@ app.post('/login', (req,res)=> {
             } 
             // Send result back to front-end
             if (result.length > 0) {
+                req.session.user = result
                 res.send(result)
             } else {
                 res.send({message: "Wrong userID/password combination! Try again! "})

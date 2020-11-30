@@ -1,54 +1,33 @@
-import React, {Component} from 'react';
-import './App.css'
-import './index.css';
-import logo from './logo.png'
-import { BrowserRouter as Router, Link, NavLink, Prompt, Redirect, Switch } from "react-router-dom";
-import Route from 'react-router-dom/Route'
-import Home from './home';
-import Login from './login';
-import Search from './search';
-import { Nav } from 'react-bootstrap';
+import React from 'react';
+import Navbar from "./components/Navbar/Navbar"
+import './App.css';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
-class App extends Component {
-    State = {loggedIn: false}
-    render() {
-        return (
-            <Router>
-               <div className = "App">
-                 <ul>
-                     <li>
-                         <NavLink to = "/homepage" exact activeStyle = {
-                             {color: 'grey'}
-                         }>Home</NavLink>
-                     </li>
-                     <li>
-                         <NavLink to ="/searchpage" exact activeStyle = {
-                             {color: 'grey'}
-                         }>Search</NavLink>
-                     </li>
-                     <li>
-                         <NavLink to ="/myprofilepage" exact activeStyle = {
-                             {color:'grey'}
-                         }>My Profile</NavLink>
-                     </li>
-                     <li>
-                         <NavLink to ="/loginpage" exact activeStyle = {
-                             {color:'grey'}
-                         }>Log In</NavLink>
-                     </li>
-                 </ul>
-                
+//pages components
+import {Login} from './components/pages/login'
+import {Profile} from './components/pages/profile'
+import Home from './components/pages/home'
+import SearchMain from './components/pages/searchmain';
+import {SearchBasic} from './components/pages/searchbasic';
+import {SearchAdvanced} from './components/pages/searchadvanced';
+import {Register} from './components/pages/register';
 
-                 <Switch>
-                    <Route exact path="/homepage" component={Home} />
-                    <Route exact path="/loginpage" component={Login} />
-                    <Route exact path="/searchpage" component={Search} />
-                    <Route exact path="/myprofilepage" />
-                </Switch>
-               </div>
-            </Router>
-        )
-    }
+
+function App() {
+    return(
+        <Router>
+            <Navbar />
+            <Switch>
+                <Route path='/' exact component={Home}/>
+                <Route path='/login' exact component={Login}/>
+                <Route path='/profile' exact component={Profile}/>
+                <Route path='/searchmain' exact component={SearchMain}/>
+                <Route path='/searchbasic' exact component={SearchBasic}/>
+                <Route path='/searchadvanced' exact component={SearchAdvanced}/>
+                <Route path='/register' exact component={Register}/>
+            </Switch>  
+        </Router>
+    );
 }
 
 export default App;
