@@ -21,7 +21,7 @@ def home():
     return {"Hello": "World"}, 200
 
 # GET
-@app.route('/')
+@app.route('/get_users', methods = ['GET'])
 def get_user():
     cur = mysql.get_db().cursor()
     cur.execute('''select * from 411database.User''')
@@ -30,7 +30,7 @@ def get_user():
     return jsonify({'myCollection' : r})
 
 # POST
-@app.route('/')
+@app.route('/user_post', methods = ['POST'])
 def post():
     cur = mysql.get_db().cursor()
     cur.execute('''select * from 411database.User''')
@@ -82,18 +82,32 @@ def not_found(error = None):
 
     return response
 
+
+
+
 # get flights
 # GET
-@app.route('/api/get_flights')
+@app.route('/get_flights', methods = ['GET'])
 def get_flights():
     cur = mysql.get_db().cursor()
-    cur.execute('''SELECT FROM 411database.five_1_airlines''')
+    cur.execute('''SELECT * FROM 411database.five_1_airlines''')
     r = [dict((cur.description[i][0], value)
                 for i, value in enumerate(row)) for row in cur.fetchall()]
     return jsonify({'myCollection' : str(r)})
     # str(r) so that decimals are turned into strings to be jsonify
 
-
+# DELETE 
+@app.route('/delete_flights', methods = ['DELETE'])
+def delete_flights():
+    cur = mysql.get_db().cursor()
+    cur.execute('''SELECT * FROM 411database.five_1_airlines''')
+    r = [dict((cur.description[i][0], value)
+                for i, value in enumerate(row)) for row in cur.fetchall()]
+    flightInfo =  jsonify({'myCollection' : str(r)})
+    flight_num = flightInfo[5]['FlightNumber'] 
+    return(flight_num)
+    #cur.execute('''DELETE FROM 411database.five_1_airlines WHERE FlightNumber = ''') + str(flight_num)
+    
 
 
 if __name__ == '__main__':
