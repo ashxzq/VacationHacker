@@ -6,14 +6,14 @@ import Axios from 'axios'
 import {Link} from 'react-router-dom'
 import './loginregister.css'
 
-const base_url = 'http://localhost3001/'           //////change this
+const base_url = 'http://127.0.0.1:5000/'           //////change this
 
 export class Register extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             userID : '',
-            password : '',
+            userPassword : '',
             homeAirport : '',
             isRegistered : false,
         }
@@ -28,6 +28,7 @@ export class Register extends React.Component {
 
     register = e => {
         e.preventDefault()
+<<<<<<< HEAD
         const {userID, password, homeAirport} = this.state
         //------------for testing use----------------------
         // this.setState({
@@ -35,9 +36,13 @@ export class Register extends React.Component {
         // });
         //------------for testing use----------------------
         Axios.post(base_url + 'users/register/create', {                              //// change this
+=======
+        const {userID, userPassword, homeAirport} = this.state
+        Axios.post(base_url + '/register', {                              //// change this
+>>>>>>> 4905256ff2139ae1fffa9911c860e3b7f3c7193a
             'user': {
                 'userID' : userID,
-                'password': password,
+                'userPassword': userPassword,
                 'homeAirport': homeAirport
             }
         }).then((response)=> {
@@ -67,12 +72,12 @@ export class Register extends React.Component {
                   onChange={this.changeHandler}
                 />
 
-                <label> Password</label>
-                <input //password input 
+                <label> userPassword</label>
+                <input //useruserPassword input 
                   type = "text"
-                  name = "password"
-                  value = {this.state.password}
-                  placeholder = "password"
+                  name = "userPassword"
+                  value = {this.state.userPassword}
+                  placeholder = "userPassword"
                   onChange={this.changeHandler}
                 />
 
