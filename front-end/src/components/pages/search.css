@@ -1,0 +1,48 @@
+.hint {
+    
+    border-style:solid;
+    border-left-width:15px;
+    border-left-color:#1888ff;
+    color: black;
+    background-color: #ccefff;
+}
+
+.searchbasicInput {
+        padding-top: 30px;
+        padding-right: 50px;
+		border-radius: 6px;	
+		transition: box-shadow 0.25s ease;
+		z-index: 2;
+}
+
+.basicdisplay {
+    padding-top: 30px;
+}
+
+.searchbasicInput {
+    padding-top: 30px;
+    padding-right: 50px;
+    border-radius: 6px;	
+    transition: box-shadow 0.25s ease;
+    z-index: 2;
+}
+
+.advanceddisplay {
+    padding-top: 30px;
+}
+
+.searchbutton {
+    grid-template-columns: repeat(5, auto);
+    margin-right: 2rem;
+    grid-gap: 10px;
+    padding-top: 30px;
+}
+
+.card {
+    padding-left: 30px;   
+    height: 23vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+

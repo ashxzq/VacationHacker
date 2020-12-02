@@ -2,6 +2,7 @@ import React from 'react';
 import { ButtonGroup, Button, Row, Container, Col} from 'react-bootstrap';
 import Axios from 'axios'
 import {SampleFlights} from './sampleflights'
+import './search.css'
 
 const base_url = 'http://localhost3001/'           //////change this
 
@@ -52,7 +53,7 @@ export class SearchBasic extends React.Component {
     render() {
         return (
             <div className='searchbasic-container'>
-                <div className='searchbasic Input'>
+                <div className='searchbasicInput'>
                      <label> Departing Area</label> 
                      <select name='area' value = {this.state.area} placeholder='area' onChange={this.changeHandler}>
                          <option value="North America">North America</option>
@@ -116,15 +117,17 @@ export class SearchBasic extends React.Component {
                     {this.state.flights && this.state.flights.map((flight, index)=> {
                         return (
                             <div className="flight" key={index}>
-                                <h3>Flight {index+1}</h3>
-                                <div className='details'>
-                                    <p>From: {flight.ForeignAirport}</p>
-                                    <p>To: {flight.ChineseAirport}</p>
-                                    <p>Airline: {flight.Airline}</p>
-                                    <p>FlightNo: {flight.FlightNumber}</p>
-                                    <p>Weekday: {flight.Weekday}</p>
-                                    <p>Price starting at: {flight.price}</p>
-                                    <p>Booking Website: {flight.Website}</p>
+                                <div className='card'>
+                                    <h3>Flight {index+1}</h3>
+                                    <div className='details'>
+                                        <p>From: {flight.ForeignAirport}</p>
+                                        <p>To: {flight.ChineseAirport}</p>
+                                        <p>Airline: {flight.Airline}</p>
+                                        <p>FlightNo: {flight.FlightNumber}</p>
+                                        <p>Weekday: {flight.Weekday}</p>
+                                        <p>Price starting at: {flight.price}</p>
+                                        <p>Booking Website: {flight.Website}</p>
+                                    </div>
                                 </div>
                             </div>
                         );

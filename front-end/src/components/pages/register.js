@@ -4,6 +4,7 @@ import React, {useState} from "react";
 import { ButtonGroup, Button, Row, Container, Col} from 'react-bootstrap';
 import Axios from 'axios'
 import {Link} from 'react-router-dom'
+import './loginregister.css'
 
 const base_url = 'http://localhost3001/'           //////change this
 
@@ -28,6 +29,11 @@ export class Register extends React.Component {
     register = e => {
         e.preventDefault()
         const {userID, password, homeAirport} = this.state
+        //------------for testing use----------------------
+        // this.setState({
+        //     isRegistered: true
+        // });
+        //------------for testing use----------------------
         Axios.post(base_url + 'users/register/create', {                              //// change this
             'user': {
                 'userID' : userID,
@@ -83,8 +89,10 @@ export class Register extends React.Component {
                         <h3>You have successfully registered! Now log in to view your profile</h3>
                     </div>
                 )}
-              </div>    
-            <Button variant="outline-primary" onClick = {this.register}>Register</Button> 
+              </div>
+                <div className='registerbutton'>
+                    <Button variant="outline-primary" onClick = {this.register}>Register</Button> 
+                </div>
             </div>
           );
     }

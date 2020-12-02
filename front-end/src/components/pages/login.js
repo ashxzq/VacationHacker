@@ -4,7 +4,7 @@ import React, {useState} from "react";
 import { ButtonGroup, Button, Row, Container, Col} from 'react-bootstrap';
 import Axios from 'axios'
 import {Link} from 'react-router-dom'
-
+import './loginregister.css'
 const base_url = 'http://localhost3001/'           //////change this
 
 export class Login extends React.Component {
@@ -29,7 +29,7 @@ export class Login extends React.Component {
         e.preventDefault()
         const {userID, password} = this.state
         //---------------do not delete-----------------
-        localStorage.setItem('userID', userID);
+        // localStorage.setItem('userID', userID);
         //--------------for testing use----------------
         Axios.post(base_url + 'users/login', {                              //// change this
             'user': {
@@ -78,10 +78,12 @@ export class Login extends React.Component {
                 />
 
               </div>
-              <Link to='register'>
-                <Button variant="outline-primary">Register Instead</Button>
-              </Link>
-                <Button variant="outline-primary" onClick = {this.login.bind(this)}>Log In</Button>
+              <div className='loginbutton'>
+                <Link to='register'>
+                  <Button variant="outline-primary">Register Instead</Button>
+                </Link>
+                  <Button variant="outline-primary" onClick = {this.login.bind(this)}>Log In</Button>
+              </div>
               {this.loggedInFailed && <div>
                 <p>Incorrect userID/password, please try again!</p></div>}
             </div>
