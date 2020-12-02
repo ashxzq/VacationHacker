@@ -28,18 +28,8 @@ export class Register extends React.Component {
 
     register = e => {
         e.preventDefault()
-<<<<<<< HEAD
-        const {userID, password, homeAirport} = this.state
-        //------------for testing use----------------------
-        // this.setState({
-        //     isRegistered: true
-        // });
-        //------------for testing use----------------------
-        Axios.post(base_url + 'users/register/create', {                              //// change this
-=======
         const {userID, userPassword, homeAirport} = this.state
         Axios.post(base_url + '/register', {                              //// change this
->>>>>>> 4905256ff2139ae1fffa9911c860e3b7f3c7193a
             'user': {
                 'userID' : userID,
                 'userPassword': userPassword,
