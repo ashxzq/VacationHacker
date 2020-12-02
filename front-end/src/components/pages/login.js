@@ -28,6 +28,9 @@ export class Login extends React.Component {
     login = async(e) => {
         e.preventDefault()
         const {userID, password} = this.state
+        //---------------do not delete-----------------
+        localStorage.setItem('userID', userID);
+        //--------------for testing use----------------
         Axios.post(base_url + 'users/login', {                              //// change this
             'user': {
                 'userID' : userID,

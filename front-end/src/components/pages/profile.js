@@ -1,7 +1,7 @@
 import React from 'react';
 import Axios from 'axios'
 
-const base_url = 'http://localhost3001/'
+const base_url = 'http://localhost3001/'                               //change me
 
 export class Profile extends React.Component {
     constructor(props) {
@@ -16,7 +16,7 @@ export class Profile extends React.Component {
     componentDidMount() {
         this.setState({userID: localStorage.getItem('userID')});
         if (this.state.userID) {
-            Axios.post(base_url + 'profile', {
+            Axios.post(base_url + 'profile', {                         //change me
                 'userID' : `${localStorage.getItem('userID')}`,
             }).then(response => {
                 console.log(response)
