@@ -3,7 +3,7 @@
 import React from 'react';
 import { ButtonGroup, Button, Row, Container, Col} from 'react-bootstrap';
 import Axios from 'axios'
-import {SampleFlights} from './sampleflights'
+import {SampleFlights1} from './sampleflights1'
 import './search.css'
 const base_url = 'http://localhost3001/'           //////change this
 
@@ -30,7 +30,7 @@ export class SearchAdvanced extends React.Component {
         e.preventDefault()
         //----------for testing purpose
         // this.setState({
-        //     flights: SampleFlights 
+        //     flights: SampleFlights1
         // })
         //----------do not delete
         const {area, country, weekday,preference} = this.state
@@ -53,6 +53,7 @@ export class SearchAdvanced extends React.Component {
         });      
     }
     save = e => {
+        localStorage.setItem('saved', 'true');// saved to local storage as
         e.preventDefault()
         const {flights} = this.state
         Axios.post(base_url + 'users/save', {                              //// change this
@@ -148,7 +149,7 @@ export class SearchAdvanced extends React.Component {
                                         <p>Airline: {flight.Airline}</p>
                                         <p>FlightNo: {flight.FlightNumber}</p>
                                         <p>Weekday: {flight.Weekday}</p>
-                                        <p>Price starting at: {flight.price}</p>
+                                        <p>Price starting at: {flight.Price}</p>
                                         <p>Booking Website: {flight.Website}</p>
                                         <Button variant="outline-primary" onClick = {this.save} ><i class="far fa-save"></i></Button>
                                     </div>

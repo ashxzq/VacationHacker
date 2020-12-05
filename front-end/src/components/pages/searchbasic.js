@@ -1,7 +1,7 @@
 import React from 'react';
 import { ButtonGroup, Button, Row, Container, Col} from 'react-bootstrap';
 import Axios from 'axios'
-import {SampleFlights} from './sampleflights'
+import {SampleFlights1} from './sampleflights1'
 import './search.css'
 
 const base_url = 'http://localhost3001/'           //////change this
@@ -27,7 +27,7 @@ export class SearchBasic extends React.Component {
     search = async(e) => {
         // ---------for testing purposes, do not delete
         // this.setState({                     
-        //     flights : SampleFlights
+        //     flights : SampleFlights1
         // })
         // ----------for testing purposes, do not delete
         e.preventDefault()
@@ -125,7 +125,7 @@ export class SearchBasic extends React.Component {
                                         <p>Airline: {flight.Airline}</p>
                                         <p>FlightNo: {flight.FlightNumber}</p>
                                         <p>Weekday: {flight.Weekday}</p>
-                                        <p>Price starting at: {flight.price}</p>
+                                        <p>Price starting at: {flight.Price}</p>
                                         <p>Booking Website: {flight.Website}</p>
                                     </div>
                                 </div>

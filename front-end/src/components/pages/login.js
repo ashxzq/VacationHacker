@@ -30,6 +30,9 @@ export class Login extends React.Component {
         const {userID, password} = this.state
         //---------------do not delete-----------------
         // localStorage.setItem('userID', userID);
+        // this.setState({
+        //   isLoggedIn: true
+        // })
         //--------------for testing use----------------
         Axios.post(base_url + 'users/login', {                              //// change this
             'user': {
@@ -76,7 +79,8 @@ export class Login extends React.Component {
                   placeholder = "password"
                   onChange={this.changeHandler}
                 />
-
+                {this.state.isLoggedIn && <div>
+                  <h3>You are now logged in, view your profile or save flights from advance search!</h3></div>}
               </div>
               <div className='loginbutton'>
                 <Link to='register'>
@@ -84,7 +88,7 @@ export class Login extends React.Component {
                 </Link>
                   <Button variant="outline-primary" onClick = {this.login.bind(this)}>Log In</Button>
               </div>
-              {this.loggedInFailed && <div>
+              {this.state.loggedInFailed && <div>
                 <p>Incorrect userID/password, please try again!</p></div>}
             </div>
           );
